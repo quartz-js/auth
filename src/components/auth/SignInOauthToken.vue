@@ -38,7 +38,7 @@ export default {
   mounted () {
         	var provider = this.$route.params.provider
     self.loading = true
-        	container.get('services.oauth').providerSignInCode(provider, this.$route.query).then(response => {
+        	container.get('oauth').providerSignInCode(provider, this.$route.query).then(response => {
     			window.location.href = '/'
     		}).catch(error => {
       this.error = this.$t(error.body.code.toLowerCase())

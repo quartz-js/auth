@@ -67,13 +67,13 @@ export default {
   methods: {
 
     providerEnabled (provider) {
-      return container.get('services.oauth').getProviderByName('github').isEnabled()
+      return container.get('oauth').getProviderByName('github').isEnabled()
     },
     login (provider) {
       if (provider) {
-        container.get('services.oauth').providerSignIn(provider)
+        container.get('oauth').providerSignIn(provider)
       } else {
-        container.get('services.oauth').signIn(this.form).then(response => {
+        container.get('oauth').signIn(this.form).then(response => {
           window.location.href = '/'
         }).catch(response => {
           this.error = response.body.errors.message
