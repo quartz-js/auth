@@ -44,7 +44,7 @@
 
         </div>
       </div>
-      <div class='bg'><img src='@/assets/welcome.png'></div>
+      <div class='bg'><img :src='require("../../assets/welcome.png")'></div>
     </div>
 </v-app>
 </template>
