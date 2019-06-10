@@ -51,6 +51,8 @@
 
 <script>
 
+require('@railken/basic-quartz/src/assets/styles/default.styl')
+
 import { container } from '@railken/quartz-core'
 
 export default {
