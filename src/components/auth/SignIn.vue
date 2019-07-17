@@ -53,7 +53,7 @@
 
 require('@railken/basic-quartz/src/assets/styles/default.styl')
 
-import { container } from '@railken/quartz-core'
+import { container } from '@quartz/core'
 
 export default {
   name: 'SignIn',

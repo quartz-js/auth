@@ -1,5 +1,5 @@
-import { ServiceProvider } from '@railken/quartz-core'
-import { container } from '@railken/quartz-core'
+import { ServiceProvider } from '@quartz/core'
+import { container } from '@quartz/core'
 import { OAuth } from '../Services/OAuth'
 
 export class AuthServiceProvider extends ServiceProvider {

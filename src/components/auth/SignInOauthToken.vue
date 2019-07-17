@@ -26,7 +26,7 @@
 
 <script>
 
-import { container } from '@railken/quartz-core'
+import { container } from '@quartz/core'
 
 export default {
   data () {
