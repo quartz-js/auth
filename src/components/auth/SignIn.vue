@@ -51,7 +51,7 @@
 
 <script>
 
-require('@railken/basic-quartz/src/assets/styles/default.styl')
+require('@quartz/basic/src/assets/styles/default.styl')
 
 import { container } from '@quartz/core'
 
