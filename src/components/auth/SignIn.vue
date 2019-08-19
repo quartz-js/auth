@@ -4,7 +4,7 @@
       <div>  
         <!--<div class='logo'><img class='logo-img' src='../assets/logo.png'></div>-->
         <div class="centered-container">
-          <v-card flat style='margin-top: -180px'>
+          <q-card flat style='margin-top: -180px'>
             <div class="title">
               <h1>{{ $root.config.app.name }}</h1>
             </div>
@@ -40,7 +40,7 @@
             <div class="loading-overlay" v-if="loading">
               <md-progress-spinner md-mode="indeterminate" :md-stroke="2"></md-progress-spinner>
             </div>
-          </v-card>
+          </q-card>
 
         </div>
       </div>
@@ -51,7 +51,7 @@
 
 <script>
 
-require('@quartz/basic/src/assets/styles/default.styl')
+// require('@quartz/basic/src/assets/styles/default.styl')
 
 import { container } from '@quartz/core'
 
@@ -140,7 +140,7 @@ export default {
   .form {
     margin-bottom: 60px;
   }
-  .v-card {
+  .q-card{
     z-index: 1;
     padding: 40px;
     width: 100%;
