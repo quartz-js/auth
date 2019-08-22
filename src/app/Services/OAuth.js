@@ -1,4 +1,5 @@
 import { AccountApi } from '../Api/AccountApi';
+const axios = require('axios');
 
 export class OAuth {
   constructor () {
@@ -24,6 +25,7 @@ export class OAuth {
 
   setToken (token) {
     localStorage.setItem('access_token', token);
+    this.setHeader()
   }
 
   getToken () {
@@ -59,6 +61,11 @@ export class OAuth {
     return this.api.getUser(access_token).then(response => {
       return response;
     })
+  }
+
+  setHeader()
+  {
+    axios.defaults.headers.common["Authorization"] = 'Bearer ' + this.getToken()
   }
 
   getProviderByName (provider) {

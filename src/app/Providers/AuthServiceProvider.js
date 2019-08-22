@@ -16,11 +16,17 @@ export class AuthServiceProvider extends ServiceProvider {
   }
 
   boot() {
+    container.get('oauth').setHeader()
+
     return container.get('oauth').authenticate().then(response => {
       container.set('user', response.body.resource)
       window.user = container.get('user')
+      return response
     }).catch((response) => {
       // Catch error
+  
+      return response    
+
     })
   }
 }
