@@ -1,10 +1,10 @@
 <template>
-  <v-app style='background: white'>
+  <v-app style='background: #fafbff'>
     <div class='container'>
       <div>  
         <!--<div class='logo'><img class='logo-img' src='../assets/logo.png'></div>-->
         <div class="centered-container">
-          <q-card flat style='margin-top: -180px'>
+          <q-card class="pa-10" tile elevation=1 style='margin-top:-50px; width: 400px'>
             <div class="title">
               <h1>{{ $root.config.app.name }}</h1>
             </div>
@@ -15,26 +15,29 @@
             <v-alert type="error" :value="error">
               {{ error }}
             </v-alert>
-            <div class="form mt-4">
+            <div class="form mt-8">
                 <v-text-field
                   prepend-icon="person"
                   v-model="form.username"
+                  outlined
                   label="Username"
+                  placeholder="Username"
                   primary
                 ></v-text-field>
                 <v-text-field
                   prepend-icon="lock"
                   v-model="form.password"
+                  outlined
                   label="Password"
+                  placeholder="Password"
                   :type="show3 ? 'text' : 'password'"
                   @click:append="show3 = !show3"
                   :append-icon="show3 ? 'visibility_off' : 'visibility'"
                 ></v-text-field>
             </div>
 
-            <div class="actions fluid">
-              <div class='fill'></div>
-              <v-btn color="primary" @click="login()">Log in</v-btn>
+            <div class="text-right">
+              <q-btn tile elevation=0 color="primary" @click="login()">Log in</q-btn>
             </div>
 
             <div class="loading-overlay" v-if="loading">
@@ -42,9 +45,9 @@
             </div>
           </q-card>
 
+
         </div>
       </div>
-      <div class='bg'><img :src='require("../../assets/welcome.png")'></div>
     </div>
 </v-app>
 </template>
@@ -56,7 +59,6 @@
 import { container } from '@quartz/core'
 
 export default {
-  name: 'SignIn',
   data () {
     return {
       nav: false,
@@ -78,6 +80,7 @@ export default {
         container.get('oauth').signIn(this.form).then(response => {
           window.location.href = '/'
         }).catch(response => {
+          console.log(response)
           this.error = response.body.errors.message
         })
       }
@@ -122,7 +125,7 @@ export default {
 .centered-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
   height: 100vh;
   .title {
