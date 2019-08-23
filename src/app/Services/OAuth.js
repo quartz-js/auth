@@ -1,5 +1,5 @@
 import { AccountApi } from '../Api/AccountApi';
-const axios = require('axios');
+import { container } from '@quartz/core'
 
 export class OAuth {
   constructor () {
@@ -65,7 +65,7 @@ export class OAuth {
 
   setHeader()
   {
-    axios.defaults.headers.common["Authorization"] = 'Bearer ' + this.getToken()
+    container.get('axios').defaults.headers.common["Authorization"] = 'Bearer ' + this.getToken()
   }
 
   getProviderByName (provider) {
