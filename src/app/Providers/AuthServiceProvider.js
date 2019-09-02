@@ -1,5 +1,5 @@
 import { ServiceProvider } from '@quartz/core'
-import { container } from '@quartz/core'
+import { container, Helper } from '@quartz/core'
 import { OAuth } from '../Services/OAuth'
 
 export class AuthServiceProvider extends ServiceProvider {
@@ -23,6 +23,9 @@ export class AuthServiceProvider extends ServiceProvider {
       window.user = container.get('user')
       return response
     }).catch((response) => {
+
+      Helper.handleResponse(response)
+      
       // Catch error
   
       return response    
