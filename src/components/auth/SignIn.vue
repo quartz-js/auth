@@ -141,9 +141,6 @@ export default {
       margin: 0;
     }
   }
-  .form {
-    margin-bottom: 60px;
-  }
   .q-card{
     z-index: 1;
     padding: 40px;
