@@ -4,7 +4,7 @@
       <div>  
         <!--<div class='logo'><img class='logo-img' src='../assets/logo.png'></div>-->
         <div class="centered-container">
-          <q-card class="pa-10" tile elevation=1 style='margin-top:-50px; width: 400px'>
+          <q-card class="pa-10" tile elevation=1 style='max-width: 400px'>
             <div class="title">
               <h1>{{ $root.config.app.name }}</h1>
             </div>
@@ -17,6 +17,7 @@
             </v-alert>
             <div class="form mt-8">
                 <v-text-field
+                  id="auth_username"
                   prepend-icon="person"
                   v-model="form.username"
                   outlined
@@ -25,6 +26,7 @@
                   primary
                 ></v-text-field>
                 <v-text-field
+                  id="auth_password"
                   prepend-icon="lock"
                   v-model="form.password"
                   outlined
@@ -54,9 +56,7 @@
 
 <script>
 
-// require('@quartz/basic/src/assets/styles/default.styl')
-
-import { container } from '@quartz/core'
+import { container, Helper } from '@quartz/core'
 
 export default {
   data () {
@@ -80,7 +80,8 @@ export default {
         container.get('oauth').signIn(this.form).then(response => {
           window.location.href = '/'
         }).catch(response => {
-          console.log(response)
+          Helper.handleResponse(response);
+
           this.error = response.body.errors.message
         })
       }
