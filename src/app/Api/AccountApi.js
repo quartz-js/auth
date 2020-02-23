@@ -10,7 +10,7 @@ export class AccountApi extends ResourceApi {
    * @return {Promise}	
    */	
   signIn (params) {	
-    return this.post('/auth', params);	
+    return this.post('/api/auth', params);	
   }	
   
   /**	
@@ -48,6 +48,6 @@ export class AccountApi extends ResourceApi {
    * @return {Promise}	
    */	
   getUser (access_token) {
-    return this.get('/account');	
+    return this.get('/api/account');	
   }	
 };
