@@ -67,6 +67,11 @@ export class OAuth {
 
   authenticate (vars) {
     var access_token = this.getToken();
+
+    if (!access_token) {
+      return Promise.reject(1)
+    }
+
     let parts = this.parseJwt(access_token)
 
     return this.api.getUser(parts.sub).then(response => {
