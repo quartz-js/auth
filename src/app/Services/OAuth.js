@@ -55,11 +55,22 @@ export class OAuth {
     return this.api.signUp(params);
   }
 
+  parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+
   authenticate (vars) {
     var access_token = this.getToken();
+    let parts = this.parseJwt(access_token)
 
-    return this.api.getUser(access_token).then(response => {
-      return response;
+    return this.api.getUser(parts.sub).then(response => {
+      return response
     })
   }
 
