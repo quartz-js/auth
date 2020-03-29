@@ -19,7 +19,7 @@ export class AuthServiceProvider extends ServiceProvider {
     container.get('oauth').setHeader()
 
     return container.get('oauth').authenticate().then(response => {
-      container.set('user', response.body.resource)
+      container.set('user', response.body.data[0])
       window.user = container.get('user')
       return response
     }).catch((response) => {
@@ -29,7 +29,6 @@ export class AuthServiceProvider extends ServiceProvider {
       // Catch error
   
       return response    
-
     })
   }
 }

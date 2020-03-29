@@ -43,11 +43,11 @@ export class AccountApi extends ResourceApi {
   /**	
    * Get user	
    *	
-   * @param {String} access_token	
+   * @param {String} user_id	
    *	
    * @return {Promise}	
    */	
-  getUser (access_token) {
-    return this.get('/api/account');	
+  getUser (user_id) {
+    return this.get(`/admin/users?query=id eq ${user_id}&include=groups`);	
   }	
 };
