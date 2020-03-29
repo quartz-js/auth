@@ -48,6 +48,6 @@ export class AccountApi extends ResourceApi {
    * @return {Promise}	
    */	
   getUser (user_id) {
-    return this.get(`/admin/users?query=id eq ${user_id}&include=groups`);	
+    return this.get(`/api/data/user?query=id eq ${user_id}&include=groups`);	
   }	
 };
