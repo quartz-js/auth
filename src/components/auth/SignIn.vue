@@ -5,8 +5,11 @@
         <!--<div class='logo'><img class='logo-img' src='../assets/logo.png'></div>-->
         <div class="centered-container">
           <q-card class="pa-10" tile elevation=1 style='max-width: 400px'>
-            <div class="title">
-              <h1>{{ $root.config.app.name }}</h1>
+            <div v-if="$root.container.get('config.app.logo')" class="mb-2">
+              <img :src="$root.container.get('config.app.logo')" style='max-height:80px;max-width:100%;margin: 0' />
+            </div>
+            <div class="title" v-else>
+              <h1> {{ $root.container.get('config.app.name') }}</h1>
             </div>
             <div class="md-body-1" v-if="!error">
               Welcome back!<br>
